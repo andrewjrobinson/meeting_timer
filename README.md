@@ -57,7 +57,7 @@ If you have other ideas please contact me so I can add them to the list and
 hopefully get time to implement them at some point.
 
 If you have the skills/time to implement the Windows/Mac version of webcam 
-mode please get in contact se we can work together to get it implemented.
+mode please get in contact so we can work together to get it implemented.
   
 ## Gifts / Motivation
 
