@@ -1,0 +1,7 @@
+
+
+# extras for linux webcam mode
+numpy
+opencv-python
+pyfakewebcam
+Pillow

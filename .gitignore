@@ -1,0 +1,5 @@
+/dist/
+/src/experiments
+/src/meeting_timer.egg-info
+/.project
+/.pydevproject
