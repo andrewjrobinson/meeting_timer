@@ -13,7 +13,7 @@ It has two modes:
   can share the timer with other presenters via your webcam which can be hidden
   from the regular participants by making it a webinar co-host.
   
-**Table operating system (OS) support**:
+**Table**: operating system (OS) support:
 
 | Mode         | Windows | MacOS     | Linux |
 | ------------ |:-------:|:---------:|:-----:|
