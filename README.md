@@ -27,6 +27,11 @@ It has two modes:
    access to a MacOS computer to test it out.  If you do and successfully get it
    to work, please drop me a message (andrewjrobinson+mt at gmail.com).
 
+## Documentation
+
+* [Install Guide](docs/README.md)
+* [User Guide](docs/user-guide/README.md)
+
 ## TO-DO list
 
 Some features that I would like to add:
@@ -44,10 +49,15 @@ Some features that I would like to add:
   * WindowsOS
   * MacOS
 
-To be honest though, I may not get to implementing them since my main 
+To be honest though, I may not get to implementing these since my main 
 motiviation for creating this application (hosting a webinar) has passed (and 
-this tool performed very well.
+this tool performed very well).
 
+If you have other ideas please contact me so I can add them to the list and 
+hopefully get time to implement them at some point.
+
+If you have the skills/time to implement the Windows/Mac version of webcam 
+mode please get in contact se we can work together to get it implemented.
   
 ## Gifts / Motivation
 
