@@ -4,7 +4,7 @@
 
 Allows you to control the count-down timer
 
-![Control Window](./user-guide/control-window.png)
+![Control Window](control-window.png)
 
 **Figure**: The control window is divided up into 3 sections: 1) On-screen, 2) Controls and 3) Up-next.
 
@@ -32,16 +32,16 @@ The Quit button is used to exit the application and will close all other windows
 
 The screen-share window shows the count down timer and is the window that you share with your participants to show them the timer.
 
-![Share-screen Window](./user-guide/share-screen.png)
+![Share-screen Window](share-screen.png)
 
 **Figure**: The share-screen window is divided up into 3 sections 1) title, 2) time, and 3) speaker; their current value is set 
 by the corresponding textboxes on the Control window's *on-screen* section.
 
-![Share-screen Window - Warning mode](./user-guide/share-screen-warning.png)
+![Share-screen Window - Warning mode](share-screen-warning.png)
 
 **Figure**: when the timer reaches the *warning* threshold (default 60 seconds) it switches colour to orange
 
-![Share-screen Window](./user-guide/share-screen-finished.png)
+![Share-screen Window](share-screen-finished.png)
 
 **Figure**: when the timer reaches the end, it switches colour to red.
 
@@ -52,7 +52,7 @@ will output video frames to the first available virtual webcam device.  You can 
 Zoom (R)) to use the virtual webcam to display the timer instead of your regular webcam.  This mode is useful when you need to share to
 only presenters in a webminar or need to also share a different screen in a regular meeting.
 
-![Webcam mode](./user-guide/webcam-mode.png)
+![Webcam mode](webcam-mode.png)
 
 **Figure**: the webcam output showing up in the Zoom (R) video conferencing application over the top of the share-screen and control
 windows
