@@ -29,27 +29,35 @@ class DisplayWindow(tk.Frame):
     '''
     Share-screen window
     '''
-    def __init__(self, master, settings, *args, **kwargs):
+    def __init__(self, master, app, *args, **kwargs):
         super().__init__(master, bg="black", *args, **kwargs)
         self.master = master
-        self._settings = settings
+        self.app = app
         self.pack(fill=tk.BOTH, expand=tk.YES)
         self.create_widgets()
 #         master.attributes('-zoomed', True)
 
+        # watch for colour updates
+        def update_colour(*args):
+            colour = self.app.settings.display.foreground.get()
+            background = self.app.settings.display.background.get()
+            self.set_colours(fg=colour, bg=background)
+        self.app.settings.display.foreground.trace('w', update_colour)
+        self.app.settings.display.background.trace('w', update_colour)
+
     def create_widgets(self):
         self.title_label = tk.Label(self, fg="green", bg="black")
-        self.title_label["textvariable"] = self._settings.display.title
+        self.title_label["textvariable"] = self.app.settings.display.title
         self.title_label.pack(side=tk.TOP, expand=tk.YES, fill=tk.BOTH)
         self.title_label.config(font=("Arial", 64))
         
         self.timer_label = tk.Label(self, fg="green", bg="black")
-        self.timer_label["textvariable"] = self._settings.display.time
+        self.timer_label["textvariable"] = self.app.settings.display.time
         self.timer_label.pack(side=tk.TOP, expand=tk.YES, fill=tk.BOTH)
         self.timer_label.config(font=("Courier Bold", 256))
         
         self.speaker_label = tk.Label(self, fg="green", bg="black")
-        self.speaker_label["textvariable"] = self._settings.display.speaker
+        self.speaker_label["textvariable"] = self.app.settings.display.speaker
         self.speaker_label.pack(side=tk.TOP, expand=tk.YES, fill=tk.BOTH)
         self.speaker_label.config(font=("Arial", 64))
 

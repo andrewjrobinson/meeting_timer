@@ -24,7 +24,7 @@ setup(
     python_requires='>=3.6',
     entry_points={  # Optional
         'console_scripts': [
-            'meeting-timer=meeting_timer.meetingtime:main',
+            'meeting-timer=meeting_timer.main:main',
         ],
     },
     install_requires=[

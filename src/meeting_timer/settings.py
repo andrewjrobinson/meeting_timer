@@ -41,7 +41,7 @@ class SettingsWrapper(object):
             self._root = self
         else:
             self._root = root
-        self._settings = settings
+        self.settings = settings
     
     def settings_root(self):
         '''
@@ -62,9 +62,9 @@ class SettingsWrapper(object):
         Get the specified key
         '''
         if default is not None:
-            result = self._settings.get(key, default)
+            result = self.settings.get(key, default)
         else:
-            result = self._settings[key]
+            result = self.settings[key]
         if isinstance(result, collections.abc.Mapping):
             result = SettingsWrapper(self._root, result)
         return result
@@ -124,10 +124,14 @@ class Settings(SettingsWrapper):
             self.read()
         return SettingsWrapper.get(self, key, default=default)
     
-    def read(self):
+    def read(self, from_filename=None):
         '''
         Read settings from file
         '''
+        # change filename if required
+        if from_filename is not None:
+            self._filename = from_filename
+            
         # check filename is ok
         if self._filename is None:
             raise FileNotFoundError(f"Settings filename not provided")
@@ -138,7 +142,7 @@ class Settings(SettingsWrapper):
         if os.path.getsize(self._filename) > 0:
             with open(self._filename, 'r') as f:
                 content = json.load(f)
-                self._read_setting_values(self._settings, content, ('display',))
+                self._read_setting_values(self.settings, content, ('display',))
 
 
     def write(self, as_filename=None):
@@ -156,10 +160,10 @@ class Settings(SettingsWrapper):
         # open file to write
         with open(self._filename, 'w+') as f:
             # convert to basic python types
-            content = self._dump_setting_values(self._settings, ('display',))
+            content = self._dump_setting_values(self.settings, ('display',))
             
             # write to file in json format
-            json.dump(content, f)
+            json.dump(content, f, indent=2, sort_keys=True)
 
 
     def _read_setting_values(self, settings, values, ignore_keys=()):

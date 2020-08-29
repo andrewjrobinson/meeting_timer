@@ -24,30 +24,15 @@
 #
 
 import sys
-import tkinter as tk
-
-from meeting_timer.main_window import MainWindow
-
-
-'''
-Created on 15 Jul 2020
-
-@author: arobinson
-'''
+from meeting_timer.application import Application
 
 def main(argv=sys.argv):
-    '''Main entry point'''
-    
-    filename = None
-    if len(argv) > 1:
-        filename = argv[1]
-    
-    root = tk.Tk()
-    root.geometry("240x600")
-    app = MainWindow(master=root, filename=filename)
-    app.mainloop()
+    '''
+    Main entry-point
+    '''
+    app = Application()
+    app.main(argv)
 
-
+# start end-point if file is executed
 if __name__ == '__main__':
     main(sys.argv)
-    
