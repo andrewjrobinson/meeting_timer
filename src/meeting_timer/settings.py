@@ -88,23 +88,27 @@ class Settings(SettingsWrapper):
                 "background": tk.StringVar(value="black"),
                 "finished": tk.StringVar(value="red"),
                 "primary": tk.StringVar(value="green"),
-                "warning": tk.StringVar(value="orange")
+                "warning": tk.StringVar(value="orange"),
             },
             "display": {
+                "background": tk.StringVar(value="black"),
+                "foreground": tk.StringVar(value="green"),
                 "title": tk.StringVar(value=""),
                 "time": tk.StringVar(value=""),
-                "speaker": tk.StringVar(value="")
+                "speaker": tk.StringVar(value=""),
             },
             "initial": {
+                "duration": tk.IntVar(value=540),
                 "title": tk.StringVar(value="My Webinar"),
                 "time": tk.StringVar(value=""),
-                "speaker": tk.StringVar(value="Welcome")
+                "speaker": tk.StringVar(value="Welcome"),
+                "warning": tk.IntVar(value=60),
             },
             "next": {
                 "duration": tk.IntVar(value=540),
                 "speaker": tk.StringVar(value="John Smith"),
                 "title": tk.StringVar(value="My Webinar"),
-                "warning": tk.IntVar(value=60)
+                "warning": tk.IntVar(value=60),
             },
             "finished_text": tk.StringVar(value="STOP")
         })
