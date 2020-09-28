@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="meeting_timer",
-    version="0.2.0",
+    version="0.3.0",
     author="Andrew Robinson",
     author_email="andrewjrobinson+mt@gmail.com",
     description="A simple application to allow you to keep your meetings or webinars running on time.",
