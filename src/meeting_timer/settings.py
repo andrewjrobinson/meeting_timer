@@ -103,6 +103,8 @@ class Settings(SettingsWrapper):
                 "time": tk.StringVar(value=""),
                 "speaker": tk.StringVar(value="Welcome"),
                 "warning": tk.IntVar(value=60),
+                "width": tk.IntVar(value=1280),
+                "height": tk.IntVar(value=720),
             },
             "next": {
                 "duration": tk.IntVar(value=540),

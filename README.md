@@ -36,8 +36,7 @@ It has two modes:
 
 Some features that I would like to add:
 
-* Save configuration to file (JSON)
-* Allow customisation of display (font-size, colours etc.)
+* Allow customisation of display (font-size, ~~colours~~ [done] etc.)
 * Allow full schedule of events to be specified ahead of time:
   * Manual advance to next speaker
   * Automatic advance
@@ -48,6 +47,8 @@ Some features that I would like to add:
 * Webcam Support:
   * WindowsOS
   * MacOS
+* ~~Save configuration to file (JSON)~~ [done]
+* ~~Settings dialog~~ [done]
 
 To be honest though, I may not get to implementing these since my main 
 motiviation for creating this application (hosting a webinar) has passed (and 

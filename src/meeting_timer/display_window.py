@@ -23,6 +23,7 @@
 #
 
 import tkinter as tk
+from meeting_timer import support
 
 
 class DisplayWindow(tk.Frame):
@@ -70,6 +71,7 @@ class DisplayWindow(tk.Frame):
             self.timer_label.config(fg=fg)
             self.speaker_label.config(fg=fg)
         if bg is not None:
+            bg = support.colour_to_html(bg)
             self.title_label.config(bg=bg)
             self.timer_label.config(bg=bg)
             self.speaker_label.config(bg=bg)

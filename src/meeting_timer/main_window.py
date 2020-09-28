@@ -127,6 +127,9 @@ class MainWindow(tk.Frame):
         
         self.next_frame.pack(padx=2, pady=2, expand=True, fill=tk.X)
 
+        self.settings_btn = tk.Button(self, text="Settings...", command=self.app.show_settings)
+        self.settings_btn.pack(side="top", expand=True, fill=tk.X)
+
         self.quit = tk.Button(self, text="QUIT", fg="red", command=self.app.quit)
         self.quit.pack(side="top", expand=True, fill=tk.X)
 
