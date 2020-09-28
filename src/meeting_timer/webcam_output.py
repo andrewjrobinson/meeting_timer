@@ -24,6 +24,7 @@
 
 import platform
 import glob
+from meeting_timer import support
 
 # platform specific imports
 WEBCAM_SUPPORT=False
@@ -86,9 +87,9 @@ class WebcamOutput(object):
         '''Updates image to render to webcam'''
         
         colour = self.app.settings.display.foreground.get()
-#         background = self.app.settings.display.background.get()
+        background = support.colour_to_tuple(self.app.settings.display.background.get())
         
-        img = Image.new('RGB', (self._img_width, self._img_height, ))
+        img = Image.new('RGB', (self._img_width, self._img_height, ), background)
         draw = ImageDraw.Draw(img)
         font = ImageFont.truetype("arial.ttf", int(self._img_height/7))
         fontm = ImageFont.truetype("FreeMonoBold.otf", int(self._img_height/2))

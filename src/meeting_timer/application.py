@@ -31,6 +31,7 @@ from meeting_timer.settings import Settings
 from meeting_timer.main_window import MainWindow
 from meeting_timer.webcam_output import WebcamOutput
 import os
+from meeting_timer.settings_window import SettingsWindow
 
 
 class Application(object):
@@ -75,6 +76,7 @@ class Application(object):
         # display window
         self.display_window = tk.Toplevel(self.master)
         self.display_window.title('Meeting Timer')
+        self.display_window.geometry(f'{self.settings.initial.width.get()}x{self.settings.initial.height.get()}')
         self.display_app = DisplayWindow(self.display_window, app=self)
         # webcam
         self.camera = WebcamOutput(self)
@@ -115,10 +117,7 @@ class Application(object):
             
             # update display text
             if int(remaining) <= 0:
-                self.settings.display.foreground.set(self.settings.colour.finished.get())
-                self.settings.display.time.set(self.settings.finished_text.get())
-                self.start_time = None
-                self.pause_time = None
+                self.stop()
             else:
                 time_text = self._seconds_to_display(remaining)
                 if time_text != self._last_time:
@@ -129,6 +128,10 @@ class Application(object):
         
         # schedule next display update
         self.master.after(100, self.update_timer)
+
+    def update_bg_colour(self):
+        '''Update background colour on display'''
+        self.settings.display.background.set(self.settings.colour.background.get())
 
     def open(self):
         '''
@@ -158,6 +161,14 @@ class Application(object):
         if filename is not None:
             self.settings.write(filename)
 
+    def show_settings(self):
+        '''Show the settings window'''
+        
+        self.settings_window = tk.Toplevel(self.master)
+        self.settings_window.title('Settings - Meeting Timer')
+        self.settings_app = SettingsWindow(self.settings_window, app=self)
+        
+
     
     def new(self):
         '''Clear '''
@@ -166,7 +177,7 @@ class Application(object):
     def start(self):
         if self.pause_time is not None:
             self.start_time += time.time() - self.pause_time
-        else:
+        elif self.start_time is None:
             self.start_time = time.time()
         self.pause_time = None
     
@@ -197,8 +208,10 @@ class Application(object):
         '''
         self.start_time = None
         self.pause_time = None
+        colour = self.settings.colour.finished.get()
+        self.settings.display.foreground.set(colour)
+        self._last_colour = colour
         self.settings.display.time.set(self.settings.finished_text.get())
-        self.settings.display.foreground.set(self.settings.colour.finished.get())
     
     def quit(self):
         '''
